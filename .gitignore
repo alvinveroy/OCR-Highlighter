@@ -245,7 +245,6 @@ ModelManifest.xml
 .fake/
 
 # Emgu / OpenCV dll / tessdata
-*.dll
 tessdata/
 include/
 zh-CN/

@@ -378,7 +378,7 @@ Public Class Main
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             isMouseDown = False
             Dim ScreenRect As Rectangle = New Rectangle(ScreenOriginPos.X, ScreenOriginPos.Y, mRect.Width, mRect.Height)
-            'ReadCharacter(CaptureSelected(ScreenRect)).Save("test.png", System.Drawing.Imaging.ImageFormat.Png) ' debug
+            'PreProcessImg(CaptureSelected(ScreenRect), 0).ToBitmap.Save("test.png", System.Drawing.Imaging.ImageFormat.Png) ' debug
             CaptureText.Text = ReadCharacter(CaptureSelected(ScreenRect))
             Me.Invalidate()
         Else
