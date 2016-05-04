@@ -22,30 +22,36 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.CaptureText = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'CaptureText
+        '
+        Me.CaptureText.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.CaptureText.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.CaptureText.MergeAction = System.Windows.Forms.MergeAction.Replace
+        Me.CaptureText.Name = "CaptureText"
+        Me.CaptureText.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.CaptureText.Size = New System.Drawing.Size(76, 17)
+        Me.CaptureText.Text = "Capture Text:"
         '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CaptureText})
+        Me.StatusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 763)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(655, 22)
         Me.StatusStrip1.TabIndex = 0
         Me.StatusStrip1.Text = "StatusStrip1"
         '
-        'CaptureText
-        '
-        Me.CaptureText.Name = "CaptureText"
-        Me.CaptureText.Size = New System.Drawing.Size(86, 17)
-        Me.CaptureText.Text = "Captured Text: "
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(655, 785)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Name = "Main"
@@ -57,6 +63,6 @@ Partial Class Main
 
     End Sub
 
-    Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents CaptureText As ToolStripStatusLabel
+    Friend WithEvents StatusStrip1 As StatusStrip
 End Class

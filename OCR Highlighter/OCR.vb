@@ -25,4 +25,9 @@ Module OCR
             End Using
         End Using
     End Function
+
+    'Public Function PreProcessImg(ByVal cropSrc As Bitmap, ByVal AdjustValues As Long) As Image(Of Emgu.CV.Structure.Gray, Byte)
+    '    'Return cropSrc
+    'End Function
+
 End Module
