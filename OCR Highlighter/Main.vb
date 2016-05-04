@@ -379,7 +379,7 @@ Public Class Main
             isMouseDown = False
             Dim ScreenRect As Rectangle = New Rectangle(ScreenOriginPos.X, ScreenOriginPos.Y, mRect.Width, mRect.Height)
             'PreProcessImg(CaptureSelected(ScreenRect), 0).ToBitmap.Save("test.png", System.Drawing.Imaging.ImageFormat.Png) ' debug
-            CaptureText.Text = ReadCharacter(CaptureSelected(ScreenRect))
+            CaptureText.Text = ReadOCR(PreProcessImg(CaptureSelected(ScreenRect), 0))
             Me.Invalidate()
         Else
             If Not PanMode Then
@@ -443,16 +443,18 @@ Public Class Main
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim bmp As New Bitmap(My.Resources.Sample_Image)
+        Dim bmp As New Bitmap(My.Resources.SampleImage)
         Me.Image = bmp
         Me.Invalidate()
     End Sub
 
 
     Private Sub CropPicture(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Me.Paint
-        Using pen As New Pen(Color.Red, 3)
-            e.Graphics.DrawRectangle(pen, mRect)
-        End Using
+        If isMouseDown Then
+            Using pen As New Pen(Color.Red, 3)
+                e.Graphics.DrawRectangle(pen, mRect)
+            End Using
+        End If
     End Sub
 
 End Class

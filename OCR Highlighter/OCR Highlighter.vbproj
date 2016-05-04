@@ -111,12 +111,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fine tune.Designer.vb">
-      <DependentUpon>Fine tune.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Fine tune.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -143,9 +137,6 @@
     <Compile Include="ProcessImage.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Fine tune.resx">
-      <DependentUpon>Fine tune.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
