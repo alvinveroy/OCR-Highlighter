@@ -1,4 +1,5 @@
 ﻿Module ProcessImage
+    Public FineTuneImg As Bitmap
     Public Declare Function BitBlt Lib "gdi32.dll" (ByVal hdcDest As IntPtr, ByVal xDest As Integer, ByVal yDest As Integer, ByVal wDest As Integer, ByVal hDest As Integer, ByVal hdcSource As IntPtr, ByVal xSrc As Integer, ByVal ySrc As Integer, ByVal rop As CopyPixelOperation) As Boolean
     Public Function CaptureSelected(ByVal rect As Rectangle) As Bitmap
 

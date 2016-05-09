@@ -305,12 +305,12 @@ Public Class Main
             ScreenOriginPos = New Point(Cursor.Position)
             isMouseDown = True
         Else
-        EndPoint = Nothing
-        Selected_Rectangle = Nothing
+            EndPoint = Nothing
+            Selected_Rectangle = Nothing
 
-        'Set the start point. This is used for panning and zooming so we always set it.
-        m_StartPoint = New Point(e.X, e.Y)
-        Me.Focus()
+            'Set the start point. This is used for panning and zooming so we always set it.
+            m_StartPoint = New Point(e.X, e.Y)
+            Me.Focus()
         End If
     End Sub
 
@@ -378,8 +378,16 @@ Public Class Main
         If e.Button = System.Windows.Forms.MouseButtons.Left Then
             isMouseDown = False
             Dim ScreenRect As Rectangle = New Rectangle(ScreenOriginPos.X, ScreenOriginPos.Y, mRect.Width, mRect.Height)
+            Dim OCRResult As New String(ReadOCR(PreProcessImg(CaptureSelected(ScreenRect))))
             'PreProcessImg(CaptureSelected(ScreenRect), 0).ToBitmap.Save("test.png", System.Drawing.Imaging.ImageFormat.Png) ' debug
-            CaptureText.Text = ReadOCR(PreProcessImg(CaptureSelected(ScreenRect), 0))
+            If String.IsNullOrEmpty(OCRResult) Or String.IsNullOrWhiteSpace(OCRResult) Then
+                FineTuneImg = CaptureSelected(ScreenRect)
+                Dim box = New FineTune()
+                box.Show()
+            Else
+                FineTuneImg = Nothing
+                CaptureText.Text = OCRResult
+            End If
             Me.Invalidate()
         Else
             If Not PanMode Then
